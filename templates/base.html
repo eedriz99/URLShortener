@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Short.ly</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <!-- Favicons created with "https://favicon.io/favicon-generator/" -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="{% static 'images/favicon/apple-touch-icon.png' %}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="{% static 'images/favicon/favicon-32x32.png' %}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="{% static 'images/favicon/favicon-16x16.png' %}"
+    />
+    <link
+      rel="manifest"
+      href="{% static 'images/favicon/site.webmanifest' %}"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <body>
+    <header>
+      <a href="{% url 'index' %}">
+        <h1>Short.ly</h1>
+      </a>
+      <nav>
+        <ul>
+          <li class="nav-item">
+            <a href="{% url 'index' %}" class="nav-link hover">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'statistics'%}" class="nav-link hover"
+              >Statistics</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>{% block container %} {% endblock %}</main>
+    <footer class="footer">
+      &copy; Short.ly 2024 | Designed by:
+      <a href="https://github.com/eedriz99">Eedriz99</a>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+  </body>
+</html>
