@@ -1,8 +1,8 @@
 databases:
   - name: shortly
     plan: free
-    databaseName: db_shortly_0f7k
-    user: db_shortly_0f7k_user
+    databaseName: shortly_y73u
+    user: shortly_y73u_user
 
 services:
   - type: web
