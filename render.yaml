@@ -1,7 +1,7 @@
 databases:
   - name: shortly
     plan: free
-    databaseName: shortly
+    databaseName: db_shortly_0f7k
     user: db_shortly_0f7k_user
 
 services:
@@ -14,7 +14,7 @@ services:
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: db_shortly_0f7k
+          name: shortly
           property: connectionString
       - key: SECRET_KEY
         generateValue: true
