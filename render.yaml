@@ -1,7 +1,7 @@
 databases:
   - name: shortly
     plan: free
-    databaseName: db_shortly_0f7k
+    databaseName: shortly
     user: db_shortly_0f7k_user
 
 services:
