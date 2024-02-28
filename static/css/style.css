@@ -48,7 +48,8 @@ main {
 }
 
 main h3,
-.success {
+.success,
+.error-txt {
   max-width: 80%;
   margin: 10px auto;
 }
@@ -110,7 +111,7 @@ footer > a:hover {
   border: 2px solid rgb(12, 12, 12);
 }
 
-.hover:hover {
+.nav-link:hover {
   animation: hover 1s ease;
 }
 
@@ -136,38 +137,22 @@ p > span {
 
 .error {
   color: rgb(250, 20, 20);
-  /* position: absolute;
-  top: 60px;
-  right: 0;
-  z-index: 10;
-  border: 1px solid rgb(220, 220, 220) !important;
-  box-shadow: 5px 5px 20px 1px rgba(50, 50, 50, 0.5);
-  border-left: 5px solid red;
-  padding: 20px 15px;
   margin: 10px;
-  height: 70px;
-  width: 300px; */
 }
 
-/* .btn {
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  top: 5px;
-  right: 5px;
+.copy {
+  padding: 5px 10px;
   border: 1px solid black;
-  padding: 3px;
-  border-radius: 3px;
-} */
+  border: 3px;
+  cursor: pointer;
+}
 
-/* .btn > .img {
-  max-width: 90%;
-  max-height: 90%;
-} */
+.copy:hover {
+  transform: scale(1.1);
+}
 
-/* #span1,
-#span2 {
-  height: 50px;
-  width: 50px;
-  background-color: black;
-} */
+.success {
+  display: flex;
+  justify-items: end;
+  align-items: center;
+}

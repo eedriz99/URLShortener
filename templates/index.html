@@ -12,14 +12,25 @@
       id="url"
       name="url"
       value=""
-      placeholder="example: https://example.com"
+      placeholder="https://example.com"
       required
     />
     <input type="submit" value="Shorten" />
   </div>
 </form>
 {% if short_url %}
-<p class="success">Your URL is now shortened to: <span>{{short_url}}</span></p>
+<div class="success" role="alert">
+  <p>
+    Your URL is now shortened to:
+    <span id="short-url" class="short-url"
+      ><span class="baseUrl"></span>{{short_url}}</span
+    >
+  </p>
+  <button id="copy-btn" class="copy">
+    <i class="fa-regular fa-clipboard"></i>
+    Copy
+  </button>
+</div>
 {% elif error_message %}
-<p class="error">{{error_message}}</p>
+<p class="error error-txt">{{error_message}}</p>
 {% endif %} {% endblock %}

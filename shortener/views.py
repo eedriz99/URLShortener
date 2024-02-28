@@ -52,6 +52,6 @@ def statistics(request):
             except ShortURL.DoesNotExist:
                 return render(request, "stat.html", {"error_message": "URL not found."})
             else:
-                return render(request, "stat.html", {"stat": url.get_stat()})
+                return render(request, "stat.html", {"stat": url.get_stat(), "slug": slug})
     elif request.method == 'GET':
         return render(request, 'stat.html')

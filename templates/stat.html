@@ -14,12 +14,15 @@
       placeholder="https://example.com/abcdef"
       required
     />
-    <input type="submit" value="Shorten" />
+    <input type="submit" value="Check statistics" />
   </div>
 </form>
 
-{% if stat %}
-<p class="success">Your link has been visited {{stat}} times since creation.</p>
+{% if stat and slug %}
+<p class="success">
+  Your link <span class="baseUrl"></span>{{slug}} has been visited {{stat}}
+  times since creation.
+</p>
 {% elif error_message %}
 
 <p class="error">{{error_message}}</p>

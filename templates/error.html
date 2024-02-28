@@ -1,3 +1,5 @@
 {% extends 'base.html' %} {% block container %} {% if error_message %}
-<div class="error error-div main" role="alert">{{error_message}}</div>
+<div class="error-div main" role="alert">
+  Invalid URL <span class="error"><span class="baseUrl"></span>{{error_message}}</span> check and try again
+</div>
 {% endif %} {% endblock %}
