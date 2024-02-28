@@ -1,0 +1,22 @@
+databases:
+  - name: shortly
+    plan: free
+    databaseName: db_shortly_0f7k
+    user: db_shortly_0f7k_user
+
+services:
+  - type: web
+    plan: free
+    name: urlShortener
+    runtime: python
+    buildCommand: "./build.sh"
+    startCommand: "python -m gunicorn urlShortener.asgi:application -k uvicorn.workers.UvicornWorker"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: db_shortly_0f7k
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 4
