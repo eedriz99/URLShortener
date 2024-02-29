@@ -25,7 +25,7 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG", "false").lower = "true"
+DEBUG = os.environ.get("DEBUG", "false").lower() == "true"
 
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(";")
 
@@ -85,8 +85,7 @@ if DEBUG:
             'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
-    # DATABASES["default"] = dj_database_url.parse("DATABASE_URL"))
-    # "postgres://eedriz_user:lipUam2b9c3MshFd49einCg2BCSSnb4F@dpg-cng68nla73kc73de7eh0-a.oregon-postgres.render.com/eedriz")
+
 else:
     database_url = os.environ.get("DATABASE_URL")
     DATABASES["default"] = dj_database_url.parse(database_url)
