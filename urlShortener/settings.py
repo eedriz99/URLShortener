@@ -22,12 +22,12 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-4^a$5rb*#lrst5+-vjuy(q5%d59v%j(5b%jq6rrw2#98ong=xx'
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.environ.get("DEBUG", "false").lower = "true"
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(";")
 
 
 # Application definition
@@ -78,18 +78,18 @@ WSGI_APPLICATION = 'urlShortener.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
-DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
-    'default': dj_database_url.config(
-        # Replace this value with your local database's connection string.
-        default='postgres://shortly_y73u_user:g1OOpJuukFT4rWUtk4rX0Qi8gL9LSLxS@dpg-cnfotleg1b2c73bb079g-a/shortly_y73u',
-        conn_max_age=600
-    )
-}
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+    # DATABASES["default"] = dj_database_url.parse("DATABASE_URL"))
+    # "postgres://eedriz_user:lipUam2b9c3MshFd49einCg2BCSSnb4F@dpg-cng68nla73kc73de7eh0-a.oregon-postgres.render.com/eedriz")
+else:
+    database_url = os.environ.get("DATABASE_URL")
+    DATABASES["default"] = dj_database_url.parse(database_url)
 
 
 # Password validation
