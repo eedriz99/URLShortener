@@ -11,6 +11,12 @@
   color: rgb(12, 12, 12);
 }
 
+body {
+  height: 100dvh; /* set height to 100 dynamic view height */
+  height: 100vh; /* Fallback option*/
+  width: 100vw;
+}
+
 header {
   display: flex;
   justify-content: space-between;
@@ -52,6 +58,14 @@ main h3,
 .error-txt {
   max-width: 80%;
   margin: 10px auto;
+}
+
+h3 {
+  font-size: clamp(1.5rem, 2vw, 3rem);
+}
+
+p {
+  font-size: clamp(1rem, 1vw, 2rem);
 }
 
 footer {
